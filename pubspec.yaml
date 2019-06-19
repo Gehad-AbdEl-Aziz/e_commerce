@@ -23,6 +23,8 @@ dependencies:
   google_sign_in:
   shared_preferences:
   cloud_firestore:
+  firebase_database:
+  fluttertoast:
   flutter:
     sdk: flutter
 
@@ -70,6 +72,8 @@ flutter:
     - image/pro/20.png
     - image/cat/21.png
     - image/pro/22.png
+    - image/beautiful-woman-fashion-fashion-model-1926769 (1).jpg
+    - image/adult-beautiful-beauty-413727.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.
