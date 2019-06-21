@@ -27,6 +27,7 @@ dependencies:
   uuid:
   image_picker:
   flutter_typeahead:
+  firebase_storage:
   flutter:
     sdk: flutter
 
