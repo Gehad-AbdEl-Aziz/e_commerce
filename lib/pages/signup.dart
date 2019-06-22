@@ -76,42 +76,43 @@ class _SignUpState extends State<SignUp> {
             width: double.infinity,
             height: double.infinity,
           ),
-          Center(
-            child: Padding(
-              padding: const EdgeInsets.only(top: 250.0),
+         Padding(
+              padding: const EdgeInsets.only(top: 0.0),
               child: Center(
                 child: Form(
                     key: _formKey,
-                    child: ListView(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         //======== start name ========
-
                         Padding(
                           padding:
-                              const EdgeInsets.fromLTRB(12.0, 8.0, 12.0, 8.0),
+                              const EdgeInsets.fromLTRB(14.0, 8.0, 14.0, 8.0),
                           child: Material(
                             borderRadius: BorderRadius.circular(10.0),
                             color: Colors.white.withOpacity(0.4),
                             elevation: 0.0,
                             child: Padding(
                               padding: const EdgeInsets.only(left: 12.0),
-                              child: TextFormField(
-                                onSaved: (String value) {
-                                  _pasword = value;
-                                },
-                                controller: _nameTextController,
-                                decoration: InputDecoration(
-                                  hintText: "Full name",
-                                  icon: Icon(Icons.person_outline),
-                                  // de 3l4an a4el el 5at
-                                  border: InputBorder.none,
+                              child: ListTile(
+                                title: TextFormField(
+                                  onSaved: (String value) {
+                                    _pasword = value;
+                                  },
+                                  controller: _nameTextController,
+                                  decoration: InputDecoration(
+                                    hintText: "Full name",
+                                    icon: Icon(Icons.person_outline),
+                                    // de 3l4an a4el el 5at
+                                    border: InputBorder.none,
+                                  ),
+                                  validator: (value) {
+                                    if (value.isEmpty) {
+                                      return "The Name field cannot be empty";
+                                    }
+                                    return null;
+                                  },
                                 ),
-                                validator: (value) {
-                                  if (value.isEmpty) {
-                                    return "The Name field cannot be empty";
-                                  }
-                                  return null;
-                                },
                               ),
                             ),
                           ),
@@ -120,35 +121,37 @@ class _SignUpState extends State<SignUp> {
                         // ========== Start code in email ========
                         Padding(
                           padding:
-                              const EdgeInsets.fromLTRB(12.0, 8.0, 12.0, 8.0),
+                              const EdgeInsets.fromLTRB(14.0, 8.0, 14.0, 8.0),
                           child: Material(
                             borderRadius: BorderRadius.circular(10.0),
                             color: Colors.white.withOpacity(0.4),
                             elevation: 0.0,
                             child: Padding(
                               padding: const EdgeInsets.only(left: 12.0),
-                              child: TextFormField(
-                                onSaved: (String value) {
-                                  _email = value;
-                                },
-                                controller: _emailTextController,
-                                decoration: InputDecoration(
-                                  hintText: "Email",
-                                  icon: Icon(Icons.alternate_email),
-                                  // de 3l4an a4el el 5at
-                                  border: InputBorder.none,
+                              child: ListTile(
+                                title: TextFormField(
+                                  onSaved: (String value) {
+                                    _email = value;
+                                  },
+                                  controller: _emailTextController,
+                                  decoration: InputDecoration(
+                                    hintText: "Email",
+                                    icon: Icon(Icons.alternate_email),
+                                    // de 3l4an a4el el 5at
+                                    border: InputBorder.none,
+                                  ),
+                                  validator: (value) {
+                                    if (value.isEmpty) {
+                                      Pattern pattern =
+                                          r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
+                                      RegExp regex = new RegExp(pattern);
+                                      if (!regex.hasMatch(value))
+                                        return 'Please make sure your email address is valid';
+                                      else
+                                        return null;
+                                    }
+                                  },
                                 ),
-                                validator: (value) {
-                                  if (value.isEmpty) {
-                                    Pattern pattern =
-                                        r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
-                                    RegExp regex = new RegExp(pattern);
-                                    if (!regex.hasMatch(value))
-                                      return 'Please make sure your email address is valid';
-                                    else
-                                      return null;
-                                  }
-                                },
                               ),
                             ),
                           ),
@@ -157,7 +160,7 @@ class _SignUpState extends State<SignUp> {
 
                         Padding(
                           padding:
-                              const EdgeInsets.fromLTRB(12.0, 8.0, 12.0, 8.0),
+                              const EdgeInsets.fromLTRB(14.0, 8.0, 14.0, 8.0),
                           child: Container(
                             color: Colors.white.withOpacity(0.5),
                             child: Row(
@@ -191,7 +194,7 @@ class _SignUpState extends State<SignUp> {
                         // ============ Start code in  password =======
                         Padding(
                           padding:
-                              const EdgeInsets.fromLTRB(12.0, 8.0, 12.0, 8.0),
+                              const EdgeInsets.fromLTRB(14.0, 8.0, 14.0, 8.0),
                           child: Material(
                             borderRadius: BorderRadius.circular(10.0),
                             color: Colors.white.withOpacity(0.4),
@@ -236,7 +239,7 @@ class _SignUpState extends State<SignUp> {
 
                         Padding(
                           padding:
-                              const EdgeInsets.fromLTRB(12.0, 8.0, 12.0, 8.0),
+                              const EdgeInsets.fromLTRB(14.0, 8.0, 14.0, 8.0),
                           child: Material(
                             borderRadius: BorderRadius.circular(10.0),
                             color: Colors.white.withOpacity(0.4),
@@ -282,7 +285,7 @@ class _SignUpState extends State<SignUp> {
 
                         Padding(
                           padding:
-                              const EdgeInsets.fromLTRB(12.0, 8.0, 12.0, 8.0),
+                              const EdgeInsets.fromLTRB(14.0, 8.0, 14.0, 8.0),
                           child: Material(
                               borderRadius: BorderRadius.circular(20.0),
                               color: Colors.red.shade700,
@@ -310,17 +313,16 @@ class _SignUpState extends State<SignUp> {
                                 onTap: () {
                                   Navigator.pop(context);
                                 },
-                                child: Text("Login",
+                                child: Text("I already have an account",
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                         color: Colors.red,
                                         fontWeight: FontWeight.bold,
-                                        fontSize: 15))))
+                                        fontSize: 16))))
                       ],
                     )),
               ),
             ),
-          ),
 
           Visibility(
             visible: loading ?? true,
